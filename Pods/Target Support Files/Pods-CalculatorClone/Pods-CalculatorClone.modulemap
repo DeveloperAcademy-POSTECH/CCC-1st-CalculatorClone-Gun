@@ -1,0 +1,6 @@
+framework module Pods_CalculatorClone {
+  umbrella header "Pods-CalculatorClone-umbrella.h"
+
+  export *
+  module * { export * }
+}
