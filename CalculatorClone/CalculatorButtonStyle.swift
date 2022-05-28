@@ -10,6 +10,26 @@ import SwiftUI
 struct CalculatorButtonStyle: ButtonStyle {
     let buttonContent: ButtonContent
 
+    var backgroundColor: Color {
+        switch buttonContent {
+        case .reset, .plusMinus, .percent:
+            return Color(UIColor.systemGray2)
+        case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero, .dot:
+            return Color(UIColor.systemGray6)
+        case .divide, .multiply, .minus, .plus, .equals:
+            return .orange
+        }
+    }
+
+    var foregroundColor: Color {
+        switch buttonContent {
+        case .reset, .plusMinus, .percent:
+            return .black
+        default:
+            return .white
+        }
+    }
+
     var width: CGFloat {
         buttonContent == .zero ? 177 : 82.5
     }
@@ -25,8 +45,9 @@ struct CalculatorButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 41.25)
-                .foregroundColor(buttonContent.backgroundColor)
+                .foregroundColor(backgroundColor)
             configuration.label
+                .foregroundColor(foregroundColor)
                 .font(.system(size: 40, weight: .regular))
                 .padding(.horizontal, horizontalPadding)
                 .frame(width: width, alignment: alignment)
