@@ -42,13 +42,22 @@ struct CalculatorButtonStyle: ButtonStyle {
         buttonContent == .zero ? .leading : .center
     }
 
+    var weight: Font.Weight {
+        switch buttonContent {
+        case .divide, .multiply, .minus, .plus, .equals:
+            return .medium
+        default:
+            return .regular
+        }
+    }
+
     func makeBody(configuration: Configuration) -> some View {
         ZStack {
             RoundedRectangle(cornerRadius: 41.25)
                 .foregroundColor(backgroundColor)
             configuration.label
                 .foregroundColor(foregroundColor)
-                .font(.system(size: 40, weight: .regular))
+                .font(.system(size: 40, weight: weight))
                 .padding(.horizontal, horizontalPadding)
                 .frame(width: width, alignment: alignment)
         }
