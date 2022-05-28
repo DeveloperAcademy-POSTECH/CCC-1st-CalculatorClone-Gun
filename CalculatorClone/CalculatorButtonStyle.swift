@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct CalculatorButtonStyle: ButtonStyle {
-    let buttonContent: ButtonContent
+    let buttonContent: CalculatorButtonContent
 
     func makeBody(configuration: Configuration) -> some View {
         ZStack {
@@ -30,7 +30,7 @@ struct CalculatorButtonStyle_Previews: PreviewProvider {
             Button {
 
             } label: {
-                ButtonContent.zero.label
+                CalculatorButtonContent.zero.label
             }
             .buttonStyle(CalculatorButtonStyle(buttonContent: .zero))
 

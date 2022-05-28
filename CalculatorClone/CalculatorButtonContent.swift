@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-enum ButtonContent {
+enum CalculatorButtonContent {
     case reset, plusMinus, percent,
          one, two, three, four, five, six, seven, eight, nine, zero, dot,
          divide, multiply, minus, plus, equals
