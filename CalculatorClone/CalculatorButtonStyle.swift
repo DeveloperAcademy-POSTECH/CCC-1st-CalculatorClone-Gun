@@ -16,7 +16,7 @@ struct CalculatorButtonStyle: ButtonStyle {
                 .foregroundColor(backgroundColor)
             configuration.label
                 .foregroundColor(foregroundColor)
-                .font(.system(size: fontSize, weight: weight))
+                .font(.system(size: fontSize, weight: fontWeight))
                 .padding(.horizontal, horizontalPadding)
                 .frame(width: width, alignment: alignment)
         }

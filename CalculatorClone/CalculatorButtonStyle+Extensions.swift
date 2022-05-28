@@ -50,7 +50,7 @@ extension CalculatorButtonStyle {
         }
     }
 
-    var weight: Font.Weight {
+    var fontWeight: Font.Weight {
         switch buttonContent {
         case .divide, .multiply, .minus, .plus, .equals:
             return .semibold
