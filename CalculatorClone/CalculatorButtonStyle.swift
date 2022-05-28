@@ -42,10 +42,19 @@ struct CalculatorButtonStyle: ButtonStyle {
         buttonContent == .zero ? .leading : .center
     }
 
+    var fontSize: CGFloat {
+        switch buttonContent {
+        case .plusMinus, .divide, .multiply:
+            return 30
+        default:
+            return 40
+        }
+    }
+
     var weight: Font.Weight {
         switch buttonContent {
         case .divide, .multiply, .minus, .plus, .equals:
-            return .medium
+            return .semibold
         default:
             return .regular
         }
@@ -57,7 +66,7 @@ struct CalculatorButtonStyle: ButtonStyle {
                 .foregroundColor(backgroundColor)
             configuration.label
                 .foregroundColor(foregroundColor)
-                .font(.system(size: 40, weight: weight))
+                .font(.system(size: fontSize, weight: weight))
                 .padding(.horizontal, horizontalPadding)
                 .frame(width: width, alignment: alignment)
         }
@@ -72,8 +81,12 @@ struct CalculatorButtonStyle_Previews: PreviewProvider {
                 .buttonStyle(CalculatorButtonStyle(buttonContent: .zero))
             Button(".", action: {})
                 .buttonStyle(CalculatorButtonStyle(buttonContent: .dot))
-            Button("=", action: {})
-                .buttonStyle(CalculatorButtonStyle(buttonContent: .equals))
+            Button(action: {
+
+            }, label: {
+                Image(systemName: "divide")
+            })
+            .buttonStyle(CalculatorButtonStyle(buttonContent: .multiply))
         }
         .preferredColorScheme(.dark)
     }
