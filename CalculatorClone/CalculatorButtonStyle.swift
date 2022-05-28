@@ -27,10 +27,13 @@ struct CalculatorButtonStyle: ButtonStyle {
 struct CalculatorButtonStyle_Previews: PreviewProvider {
     static var previews: some View {
         HStack(spacing: 12) {
-            Button("0", action: {})
-                .buttonStyle(CalculatorButtonStyle(buttonContent: .zero))
-            Button(".", action: {})
-                .buttonStyle(CalculatorButtonStyle(buttonContent: .dot))
+            Button {
+
+            } label: {
+                ButtonContent.zero.label
+            }
+            .buttonStyle(CalculatorButtonStyle(buttonContent: .zero))
+
             Button(action: {
 
             }, label: {
