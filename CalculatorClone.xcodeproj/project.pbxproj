@@ -68,9 +68,9 @@
 				2169B04B284136ED00FDDF70 /* ContentView.swift */,
 				21417BF72841D1E100BAB4D5 /* ButtonContent.swift */,
 				21417BFB2841DCC900BAB4D5 /* CalculatorButtonStyle.swift */,
+				21417BFD2841F24300BAB4D5 /* CalculatorButtonStyle+Extensions.swift */,
 				2169B04D284136EF00FDDF70 /* Assets.xcassets */,
 				2169B04F284136EF00FDDF70 /* Preview Content */,
-				21417BFD2841F24300BAB4D5 /* CalculatorButtonStyle+Extensions.swift */,
 			);
 			path = CalculatorClone;
 			sourceTree = "<group>";
