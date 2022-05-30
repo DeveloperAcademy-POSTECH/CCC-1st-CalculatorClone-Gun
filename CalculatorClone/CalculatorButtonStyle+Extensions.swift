@@ -29,16 +29,16 @@ extension CalculatorButtonStyle {
         }
     }
 
-    var unitlength: CGFloat {
+    var unitLength: CGFloat {
         (UIScreen.main.bounds.width - 5 * Constants.buttonSpacing) / 4
     }
 
     var width: CGFloat {
-        buttonContent == .zero ? (2 * unitlength + Constants.buttonSpacing) : unitlength
+        buttonContent == .zero ? (2 * unitLength + Constants.buttonSpacing) : unitLength
     }
 
     var height: CGFloat {
-        unitlength
+        unitLength
     }
 
     var horizontalPadding: CGFloat {
