@@ -18,27 +18,28 @@ struct CalculatorScreen: View {
     ]
 
     var body: some View {
-        VStack {
+        VStack(spacing: 5) {
             Spacer()
             Text("\(Int(currentInput))")
                 .font(.system(size: 85, weight: .thin))
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.horizontal, 15)
-                .padding(.bottom, 5)
-            ForEach(buttonContentRows, id: \.self) { buttonContentRow in
-                HStack {
-                    ForEach(buttonContentRow, id: \.self) { buttonContent in
-                        Button {
+            VStack(spacing: Constants.buttonSpacing) {
+                ForEach(buttonContentRows, id: \.self) { buttonContentRow in
+                    HStack(spacing: Constants.buttonSpacing) {
+                        ForEach(buttonContentRow, id: \.self) { buttonContent in
+                            Button {
 
-                        } label: {
-                            buttonContent.label
+                            } label: {
+                                buttonContent.label
+                            }
+                            .buttonStyle(CalculatorButtonStyle(buttonContent: buttonContent))
                         }
-                        .buttonStyle(CalculatorButtonStyle(buttonContent: buttonContent))
                     }
                 }
             }
         }
-        .padding(.horizontal, 12)
+        .padding(.horizontal, Constants.buttonSpacing)
         .padding(.vertical, 30)
         .preferredColorScheme(.dark)
     }
