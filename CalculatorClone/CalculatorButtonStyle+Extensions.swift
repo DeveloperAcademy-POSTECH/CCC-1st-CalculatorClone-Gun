@@ -47,8 +47,8 @@ extension CalculatorButtonStyle {
 
     var fontSize: CGFloat {
         switch buttonContent {
-        case .plusMinus, .divide, .multiply:
-            return 30
+        case .reset, .plusMinus, .percent, .divide, .multiply, .minus, .plus, .equals:
+            return 35
         default:
             return 40
         }
