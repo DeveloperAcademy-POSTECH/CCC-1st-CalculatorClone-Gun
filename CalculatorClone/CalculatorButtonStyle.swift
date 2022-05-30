@@ -12,15 +12,18 @@ struct CalculatorButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         ZStack {
-            RoundedRectangle(cornerRadius: 41.25)
+            RoundedRectangle(cornerRadius: CalculatorButtonStyle.height / 2)
+                .foregroundColor(.white)
+            RoundedRectangle(cornerRadius: CalculatorButtonStyle.height / 2)
                 .foregroundColor(backgroundColor)
+                .opacity(configuration.isPressed ? 0.5 : 1)
             configuration.label
                 .foregroundColor(foregroundColor)
                 .font(.system(size: fontSize, weight: fontWeight))
                 .padding(.horizontal, horizontalPadding)
                 .frame(width: width, alignment: alignment)
         }
-        .frame(width: width, height: 82.5)
+        .frame(width: width, height: CalculatorButtonStyle.height)
     }
 }
 
