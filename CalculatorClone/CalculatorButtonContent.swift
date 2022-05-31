@@ -49,11 +49,11 @@ enum CalculatorButtonContent {
             case .multiply:
                 Image(systemName: "multiply")
             case .minus:
-                Text("-")
+                Image(systemName: "minus")
             case .plus:
-                Text("+")
+                Image(systemName: "plus")
             case .equals:
-                Text("=")
+                Image(systemName: "equal")
             }
         }
     }

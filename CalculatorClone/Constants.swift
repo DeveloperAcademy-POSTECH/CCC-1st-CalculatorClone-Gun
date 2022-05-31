@@ -9,5 +9,5 @@ import Foundation
 import SwiftUI
 
 struct Constants {
-    static let buttonSpacing: CGFloat = 12
+    static let buttonSpacing: CGFloat = 15
 }

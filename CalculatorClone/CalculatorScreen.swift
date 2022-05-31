@@ -8,9 +8,40 @@
 import SwiftUI
 
 struct CalculatorScreen: View {
+    @State private var currentInput = 0.0
+    let buttonContentRows: [[CalculatorButtonContent]] = [
+        [.reset, .plusMinus, .percent, .divide],
+        [.seven, .eight, .nine, .multiply],
+        [.four, .five, .six, .minus],
+        [.one, .two, .three, .plus],
+        [.zero, .dot, .equals]
+    ]
+
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        VStack(spacing: 5) {
+            Spacer()
+            Text("\(Int(currentInput))")
+                .font(.system(size: 85, weight: .thin))
+                .frame(maxWidth: .infinity, alignment: .trailing)
+                .padding(.horizontal, 15)
+            VStack(spacing: Constants.buttonSpacing) {
+                ForEach(buttonContentRows, id: \.self) { buttonContentRow in
+                    HStack(spacing: Constants.buttonSpacing) {
+                        ForEach(buttonContentRow, id: \.self) { buttonContent in
+                            Button {
+
+                            } label: {
+                                buttonContent.label
+                            }
+                            .buttonStyle(CalculatorButtonStyle(buttonContent: buttonContent))
+                        }
+                    }
+                }
+            }
+        }
+        .padding(.horizontal, Constants.buttonSpacing)
+        .padding(.vertical, 30)
+        .preferredColorScheme(.dark)
     }
 }
 
