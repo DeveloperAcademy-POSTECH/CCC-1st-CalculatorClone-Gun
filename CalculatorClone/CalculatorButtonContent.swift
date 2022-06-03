@@ -8,16 +8,16 @@
 import Foundation
 import SwiftUI
 
-enum CalculatorButtonContent {
-    case reset, plusMinus, percent,
+enum CalculatorButtonContent: Hashable {
+    case reset(Bool), plusMinus, percent,
          one, two, three, four, five, six, seven, eight, nine, zero, dot,
          divide, multiply, minus, plus, equals
 
     var label: some View {
         Group {
             switch self {
-            case .reset:
-                Text("AC")
+            case .reset(let isReset):
+                isReset ? Text("AC") : Text("C")
             case .plusMinus:
                 Image(systemName: "plus.forwardslash.minus")
             case .percent:

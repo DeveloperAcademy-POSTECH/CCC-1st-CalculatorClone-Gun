@@ -9,13 +9,22 @@ import SwiftUI
 
 struct CalculatorScreen: View {
     @State private var currentInput = 0.0
-    let buttonContentRows: [[CalculatorButtonContent]] = [
-        [.reset, .plusMinus, .percent, .divide],
-        [.seven, .eight, .nine, .multiply],
-        [.four, .five, .six, .minus],
-        [.one, .two, .three, .plus],
-        [.zero, .dot, .equals]
-    ]
+    @State private var isReset = true
+
+    var buttonContentRows: [[CalculatorButtonContent]] = []
+
+    init() {
+        currentInput = 0.0
+        isReset = true
+
+        buttonContentRows = [
+            [.reset(isReset), .plusMinus, .percent, .divide],
+            [.seven, .eight, .nine, .multiply],
+            [.four, .five, .six, .minus],
+            [.one, .two, .three, .plus],
+            [.zero, .dot, .equals]
+        ]
+    }
 
     var body: some View {
         VStack(spacing: 5) {
