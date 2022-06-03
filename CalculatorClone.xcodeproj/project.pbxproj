@@ -66,12 +66,10 @@
 		2169B048284136ED00FDDF70 /* CalculatorClone */ = {
 			isa = PBXGroup;
 			children = (
-				2169B049284136ED00FDDF70 /* CalculatorCloneApp.swift */,
-				2169B04B284136ED00FDDF70 /* CalculatorScreen.swift */,
-				21417BF72841D1E100BAB4D5 /* CalculatorButtonContent.swift */,
-				21417BFB2841DCC900BAB4D5 /* CalculatorButtonStyle.swift */,
-				21417BFD2841F24300BAB4D5 /* CalculatorButtonStyle+Extensions.swift */,
 				2167D1062844763700B22E12 /* Constants.swift */,
+				21F2E4AB284A4B8D0040012D /* Models */,
+				2169B049284136ED00FDDF70 /* CalculatorCloneApp.swift */,
+				21F2E4AA284A4B750040012D /* Views */,
 				2169B04D284136EF00FDDF70 /* Assets.xcassets */,
 				2169B04F284136EF00FDDF70 /* Preview Content */,
 			);
@@ -84,6 +82,32 @@
 				2169B050284136EF00FDDF70 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		21F2E4AA284A4B750040012D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2169B04B284136ED00FDDF70 /* CalculatorScreen.swift */,
+				21F2E4AC284A4B990040012D /* Styles */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		21F2E4AB284A4B8D0040012D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				21417BF72841D1E100BAB4D5 /* CalculatorButtonContent.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		21F2E4AC284A4B990040012D /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				21417BFB2841DCC900BAB4D5 /* CalculatorButtonStyle.swift */,
+				21417BFD2841F24300BAB4D5 /* CalculatorButtonStyle+Extensions.swift */,
+			);
+			path = Styles;
 			sourceTree = "<group>";
 		};
 		8F3218232345CA62165CF5A5 /* Frameworks */ = {
