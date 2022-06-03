@@ -10,11 +10,7 @@ import SwiftUI
 struct CalculatorScreen: View {
     @State private var currentInput = 0.0
     @State private var isReset = true
-
-    init() {
-        currentInput = 0.0
-        isReset = true
-    }
+    @State private var currentOperator: Int? = nil
 
     var body: some View {
         VStack(spacing: 5) {
@@ -25,10 +21,10 @@ struct CalculatorScreen: View {
                 .padding(.horizontal, 15)
             VStack(spacing: Constants.buttonSpacing) {
                 let buttonContentRows: [[CalculatorButtonContent]] = [
-                    [.reset(isReset), .plusMinus, .percent, .divide],
-                    [.seven, .eight, .nine, .multiply],
-                    [.four, .five, .six, .minus],
-                    [.one, .two, .three, .plus],
+                    [.reset(isReset), .plusMinus, .percent, .divide(currentOperator == 0)],
+                    [.seven, .eight, .nine, .multiply(currentOperator == 1)],
+                    [.four, .five, .six, .minus(currentOperator == 2)],
+                    [.one, .two, .three, .plus(currentOperator == 3)],
                     [.zero, .dot, .equals]
                 ]
 

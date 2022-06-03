@@ -42,7 +42,7 @@ struct CalculatorButtonStyle_Previews: PreviewProvider {
             }, label: {
                 Image(systemName: "divide")
             })
-            .buttonStyle(CalculatorButtonStyle(buttonContent: .multiply))
+            .buttonStyle(CalculatorButtonStyle(buttonContent: .multiply(false)))
         }
         .preferredColorScheme(.dark)
     }

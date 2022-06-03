@@ -66,9 +66,9 @@
 		2169B048284136ED00FDDF70 /* CalculatorClone */ = {
 			isa = PBXGroup;
 			children = (
+				2169B049284136ED00FDDF70 /* CalculatorCloneApp.swift */,
 				2167D1062844763700B22E12 /* Constants.swift */,
 				21F2E4AB284A4B8D0040012D /* Models */,
-				2169B049284136ED00FDDF70 /* CalculatorCloneApp.swift */,
 				21F2E4AA284A4B750040012D /* Views */,
 				2169B04D284136EF00FDDF70 /* Assets.xcassets */,
 				2169B04F284136EF00FDDF70 /* Preview Content */,

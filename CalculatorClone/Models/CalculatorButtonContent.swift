@@ -11,7 +11,7 @@ import SwiftUI
 enum CalculatorButtonContent: Hashable {
     case reset(Bool), plusMinus, percent,
          one, two, three, four, five, six, seven, eight, nine, zero, dot,
-         divide, multiply, minus, plus, equals
+         divide(Bool), multiply(Bool), minus(Bool), plus(Bool), equals
 
     var label: some View {
         Group {
