@@ -11,19 +11,9 @@ struct CalculatorScreen: View {
     @State private var currentInput = 0.0
     @State private var isReset = true
 
-    var buttonContentRows: [[CalculatorButtonContent]] = []
-
     init() {
         currentInput = 0.0
         isReset = true
-
-        buttonContentRows = [
-            [.reset(isReset), .plusMinus, .percent, .divide],
-            [.seven, .eight, .nine, .multiply],
-            [.four, .five, .six, .minus],
-            [.one, .two, .three, .plus],
-            [.zero, .dot, .equals]
-        ]
     }
 
     var body: some View {
@@ -34,11 +24,19 @@ struct CalculatorScreen: View {
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.horizontal, 15)
             VStack(spacing: Constants.buttonSpacing) {
+                let buttonContentRows: [[CalculatorButtonContent]] = [
+                    [.reset(isReset), .plusMinus, .percent, .divide],
+                    [.seven, .eight, .nine, .multiply],
+                    [.four, .five, .six, .minus],
+                    [.one, .two, .three, .plus],
+                    [.zero, .dot, .equals]
+                ]
+
                 ForEach(buttonContentRows, id: \.self) { buttonContentRow in
                     HStack(spacing: Constants.buttonSpacing) {
                         ForEach(buttonContentRow, id: \.self) { buttonContent in
                             Button {
-
+                                isReset.toggle()
                             } label: {
                                 buttonContent.label
                             }
