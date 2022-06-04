@@ -9,7 +9,7 @@ import SwiftUI
 
 struct CalculatorScreen: View {
     @State private var currentInput = 0.0
-    @State private var isReset = true {
+    @State var isReset = true {
         didSet {
             buttonContentRows[0][0] = .reset(isReset)
         }
@@ -39,7 +39,7 @@ struct CalculatorScreen: View {
                     HStack(spacing: Constants.buttonSpacing) {
                         ForEach(buttonContentRow, id: \.self) { buttonContent in
                             Button {
-                                isReset.toggle()
+                                clickButton(with: buttonContent)
                             } label: {
                                 buttonContent.label
                             }
