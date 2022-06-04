@@ -15,7 +15,9 @@ extension CalculatorButtonStyle {
             return Color(UIColor.systemGray2)
         case .one, .two, .three, .four, .five, .six, .seven, .eight, .nine, .zero, .dot:
             return Color(UIColor.systemGray6)
-        case .divide, .multiply, .minus, .plus, .equals:
+        case .divide(true), .multiply(true), .plus(true), .minus(true):
+            return .white
+        default:
             return .orange
         }
     }
@@ -24,6 +26,8 @@ extension CalculatorButtonStyle {
         switch buttonContent {
         case .reset, .plusMinus, .percent:
             return .black
+        case .divide(true), .multiply(true), .plus(true), .minus(true):
+            return .orange
         default:
             return .white
         }
