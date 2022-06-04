@@ -9,13 +9,30 @@ import SwiftUI
 
 struct CalculatorScreen: View {
     @State private var currentInput = 0.0
-    let buttonContentRows: [[CalculatorButtonContent]] = [
-        [.reset, .plusMinus, .percent, .divide],
-        [.seven, .eight, .nine, .multiply],
-        [.four, .five, .six, .minus],
-        [.one, .two, .three, .plus],
-        [.zero, .dot, .equals]
-    ]
+    @State var isReset = true {
+        didSet {
+            buttonContentRows[0][0] = .reset(isReset)
+        }
+    }
+    @State var currentOperator: Int? {
+        didSet {
+            buttonContentRows[0][3] = .divide(currentOperator == 0)
+            buttonContentRows[1][3] = .multiply(currentOperator == 1)
+            buttonContentRows[2][3] = .minus(currentOperator == 2)
+            buttonContentRows[3][3] = .plus(currentOperator == 3)
+        }
+    }
+    @State private var buttonContentRows: [[CalculatorButtonContent]] = []
+
+    init() {
+        _buttonContentRows = State(initialValue: [
+            [.reset(isReset), .plusMinus, .percent, .divide(false)],
+            [.seven, .eight, .nine, .multiply(false)],
+            [.four, .five, .six, .minus(false)],
+            [.one, .two, .three, .plus(false)],
+            [.zero, .dot, .equals]
+        ])
+    }
 
     var body: some View {
         VStack(spacing: 5) {
@@ -29,7 +46,7 @@ struct CalculatorScreen: View {
                     HStack(spacing: Constants.buttonSpacing) {
                         ForEach(buttonContentRow, id: \.self) { buttonContent in
                             Button {
-
+                                clickButton(with: buttonContent)
                             } label: {
                                 buttonContent.label
                             }
