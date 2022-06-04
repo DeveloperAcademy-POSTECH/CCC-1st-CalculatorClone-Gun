@@ -16,9 +16,9 @@ extension CalculatorScreen {
             currentOperator = 0
         case .multiply:
             currentOperator = 1
-        case .plus:
-            currentOperator = 2
         case .minus:
+            currentOperator = 2
+        case .plus:
             currentOperator = 3
         default:
             break

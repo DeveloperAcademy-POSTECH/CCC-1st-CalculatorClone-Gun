@@ -18,8 +18,8 @@ struct CalculatorScreen: View {
         didSet {
             buttonContentRows[0][3] = .divide(currentOperator == 0)
             buttonContentRows[1][3] = .multiply(currentOperator == 1)
-            buttonContentRows[2][3] = .plus(currentOperator == 2)
-            buttonContentRows[3][3] = .minus(currentOperator == 3)
+            buttonContentRows[2][3] = .minus(currentOperator == 2)
+            buttonContentRows[3][3] = .plus(currentOperator == 3)
         }
     }
     @State private var buttonContentRows: [[CalculatorButtonContent]] = []
