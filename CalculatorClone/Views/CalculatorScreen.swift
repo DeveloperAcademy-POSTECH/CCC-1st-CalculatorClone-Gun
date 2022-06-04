@@ -14,15 +14,22 @@ struct CalculatorScreen: View {
             buttonContentRows[0][0] = .reset(isReset)
         }
     }
-    @State private var currentOperator: Int? = nil
+    @State var currentOperator: Int? {
+        didSet {
+            buttonContentRows[0][3] = .divide(currentOperator == 0)
+            buttonContentRows[1][3] = .multiply(currentOperator == 1)
+            buttonContentRows[2][3] = .plus(currentOperator == 2)
+            buttonContentRows[3][3] = .minus(currentOperator == 3)
+        }
+    }
     @State private var buttonContentRows: [[CalculatorButtonContent]] = []
 
     init() {
         _buttonContentRows = State(initialValue: [
-            [.reset(isReset), .plusMinus, .percent, .divide(currentOperator == 0)],
-            [.seven, .eight, .nine, .multiply(currentOperator == 1)],
-            [.four, .five, .six, .minus(currentOperator == 2)],
-            [.one, .two, .three, .plus(currentOperator == 3)],
+            [.reset(isReset), .plusMinus, .percent, .divide(false)],
+            [.seven, .eight, .nine, .multiply(false)],
+            [.four, .five, .six, .minus(false)],
+            [.one, .two, .three, .plus(false)],
             [.zero, .dot, .equals]
         ])
     }

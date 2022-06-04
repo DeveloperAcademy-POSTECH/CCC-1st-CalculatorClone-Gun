@@ -90,8 +90,8 @@
 			isa = PBXGroup;
 			children = (
 				2169B04B284136ED00FDDF70 /* CalculatorScreen.swift */,
-				21F2E4AC284A4B990040012D /* Styles */,
 				21652321284AF0A300B0E23D /* CalculatorScreen+Extensions.swift */,
+				21F2E4AC284A4B990040012D /* Styles */,
 			);
 			path = Views;
 			sourceTree = "<group>";
