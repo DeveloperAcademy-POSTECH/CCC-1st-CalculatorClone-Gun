@@ -40,7 +40,7 @@ struct CalculatorScreen: View {
         return formatter.string(for: currentValue)!
     }
 
-    @State var currentPhase: Phase = .writingValue
+    @State var currentPhase: CalculationPhase = .writingValue
 
     init() {
         _buttonContentRows = State(initialValue: [

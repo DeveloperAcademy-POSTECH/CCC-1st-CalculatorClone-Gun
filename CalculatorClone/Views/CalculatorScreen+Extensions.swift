@@ -8,10 +8,6 @@
 import Foundation
 
 extension CalculatorScreen {
-    enum Phase {
-        case writingValue, choosingOperator, finished
-    }
-
     func clickButton(with buttonContent: CalculatorButtonContent) {
         switch buttonContent {
         case .reset:
