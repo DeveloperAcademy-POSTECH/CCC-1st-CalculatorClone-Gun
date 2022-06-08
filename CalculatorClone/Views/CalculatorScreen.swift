@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct CalculatorScreen: View {
-    @State private var currentInput = 0.0
     @State var isReset = true {
         didSet {
             buttonContentRows[0][0] = .reset(isReset)
@@ -24,6 +23,23 @@ struct CalculatorScreen: View {
     }
     @State private var buttonContentRows: [[CalculatorButtonContent]] = []
 
+    var unformattedValueString = "0" {
+        didSet {
+            currentValue = formatter.number(from: unformattedValueString)!.doubleValue
+        }
+    }
+
+    let formatter = NumberFormatter()
+    @State var currentValue: Double? = 0
+
+    var formattedString: String {
+        guard let currentValue = currentValue else {
+            return "오류"
+        }
+
+        return formatter.string(for: currentValue)!
+    }
+
     init() {
         _buttonContentRows = State(initialValue: [
             [.reset(isReset), .plusMinus, .percent, .divide(false)],
@@ -32,12 +48,15 @@ struct CalculatorScreen: View {
             [.one, .two, .three, .plus(false)],
             [.zero, .dot, .equals]
         ])
+
+        formatter.numberStyle = .decimal
+        formatter.maximumFractionDigits = -2
     }
 
     var body: some View {
         VStack(spacing: 5) {
             Spacer()
-            Text("\(Int(currentInput))")
+            Text(formattedString)
                 .font(.system(size: 85, weight: .thin))
                 .frame(maxWidth: .infinity, alignment: .trailing)
                 .padding(.horizontal, 15)
