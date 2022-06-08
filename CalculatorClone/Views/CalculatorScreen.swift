@@ -23,7 +23,7 @@ struct CalculatorScreen: View {
     }
     @State private var buttonContentRows: [[CalculatorButtonContent]] = []
 
-    var unformattedValueString = "0" {
+    @State var unformattedValueString = "0" {
         didSet {
             currentValue = formatter.number(from: unformattedValueString)!.doubleValue
         }
@@ -39,6 +39,8 @@ struct CalculatorScreen: View {
 
         return formatter.string(for: currentValue)!
     }
+
+    @State var currentPhase: Phase = .writingValue
 
     init() {
         _buttonContentRows = State(initialValue: [

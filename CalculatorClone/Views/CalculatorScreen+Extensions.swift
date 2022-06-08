@@ -8,6 +8,10 @@
 import Foundation
 
 extension CalculatorScreen {
+    enum Phase {
+        case writingValue, choosingOperator, finished
+    }
+
     func clickButton(with buttonContent: CalculatorButtonContent) {
         switch buttonContent {
         case .reset:
@@ -20,6 +24,20 @@ extension CalculatorScreen {
             currentOperator = 2
         case .plus:
             currentOperator = 3
+        case .zero, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine:
+            clickDigit(buttonContent)
+        default:
+            break
+        }
+    }
+
+    func clickDigit(_ digit: CalculatorButtonContent) {
+        let digitArr: [CalculatorButtonContent] = [.zero, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine]
+        let digitValue = digitArr.firstIndex(of: digit)!
+
+        switch currentPhase {
+        case .writingValue:
+            unformattedValueString += "\(digitValue)"
         default:
             break
         }
