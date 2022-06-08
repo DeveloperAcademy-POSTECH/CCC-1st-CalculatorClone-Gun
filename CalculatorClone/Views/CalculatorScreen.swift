@@ -47,7 +47,7 @@ struct CalculatorScreen: View {
     }
 
     @State var currentPhase: CalculationPhase = .writingValue
-    @State var calcuationNodes = [CalculationNode]()
+    @State var calculationNodes = [CalculationNode]()
 
     init() {
         _buttonContentRows = State(initialValue: [

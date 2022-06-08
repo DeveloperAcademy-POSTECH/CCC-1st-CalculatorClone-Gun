@@ -16,6 +16,8 @@ extension CalculatorScreen {
             clickOperator(buttonContent)
         case .zero, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine:
             clickDigit(buttonContent)
+        case .equals:
+            calculate()
         default:
             break
         }
@@ -47,7 +49,7 @@ extension CalculatorScreen {
         switch currentPhase {
         case .writingValue, .finished:
             let newNode = CalculationNode(calcOperator: currentOperator, calcOperand: currentValue!)
-            calcuationNodes.append(newNode)
+            calculationNodes.append(newNode)
         case .choosingOperator:
             break
         }
@@ -69,5 +71,46 @@ extension CalculatorScreen {
 
         currentPhase = .choosingOperator
         currentOperatorIndex = newOperatorIndex
+    }
+
+    func calculateAndRemove(in nodes: inout [CalculationNode], at index: Int) {
+        let removedNode = nodes[index]
+        let leftOperand = nodes[index - 1].calcOperand
+        let rightOperand = removedNode.calcOperand
+
+        nodes[index - 1].calcOperand = removedNode
+            .realOperator(leftOperand, rightOperand)
+
+        nodes.remove(at: index)
+    }
+
+    var calculationResult: Double {
+        if self.calculationNodes.isEmpty {
+            return currentValue!
+        }
+
+        var calculationNodes = self.calculationNodes
+
+        while calculationNodes.count > 1 {
+            if let firstRemovedIndex = calculationNodes.firstIndex(where: { node in node.priority == 2 }) {
+               calculateAndRemove(in: &calculationNodes, at: firstRemovedIndex)
+            } else if let firstRemovedIndex = calculationNodes.firstIndex(where: { node in node.priority == 1 }) {
+                calculateAndRemove(in: &calculationNodes, at: firstRemovedIndex)
+            }
+        }
+
+        return calculationNodes[0].calcOperand
+    }
+
+    func calculate() {
+        if currentPhase == .writingValue {
+            let newNode = CalculationNode(calcOperator: currentOperator, calcOperand: currentValue!)
+            calculationNodes.append(newNode)
+        }
+
+        currentValue = calculationResult
+        calculationNodes.removeAll()
+        currentOperatorIndex = nil
+        currentPhase = .finished
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 struct CalculationNode {
     let calcOperator: CalculatorButtonContent?
-    let calcOperand: Double
+    var calcOperand: Double
 
     var realOperator: (Double, Double) -> Double {
         switch calcOperator {
@@ -23,6 +23,21 @@ struct CalculationNode {
             return (/)
         default:
             fatalError()
+        }
+    }
+
+    var priority: Int {
+        switch calcOperator {
+        case .plus:
+            return 1
+        case .minus:
+            return 1
+        case .multiply:
+            return 2
+        case .divide:
+            return 2
+        default:
+            return 0
         }
     }
 }
