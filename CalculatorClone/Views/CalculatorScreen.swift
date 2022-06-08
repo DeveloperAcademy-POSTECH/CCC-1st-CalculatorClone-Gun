@@ -13,15 +13,21 @@ struct CalculatorScreen: View {
             buttonContentRows[0][0] = .reset(isReset)
         }
     }
-    @State var currentOperator: Int? {
+    @State var currentOperatorIndex: Int? {
         didSet {
-            buttonContentRows[0][3] = .divide(currentOperator == 0)
-            buttonContentRows[1][3] = .multiply(currentOperator == 1)
-            buttonContentRows[2][3] = .minus(currentOperator == 2)
-            buttonContentRows[3][3] = .plus(currentOperator == 3)
+            changeOperatorButtonColor()
         }
     }
-    @State private var buttonContentRows: [[CalculatorButtonContent]] = []
+
+    var currentOperator: CalculatorButtonContent? {
+        guard let currentOperator = self.currentOperatorIndex else {
+            return nil
+        }
+
+        return buttonContentRows[currentOperator][3]
+    }
+
+    @State var buttonContentRows: [[CalculatorButtonContent]] = []
 
     @State var unformattedValueString = "0" {
         didSet {
@@ -41,6 +47,7 @@ struct CalculatorScreen: View {
     }
 
     @State var currentPhase: CalculationPhase = .writingValue
+    @State var calcuationNodes = [CalculationNode]()
 
     init() {
         _buttonContentRows = State(initialValue: [
