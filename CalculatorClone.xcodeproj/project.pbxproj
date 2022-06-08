@@ -17,6 +17,7 @@
 		2169B04E284136EF00FDDF70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2169B04D284136EF00FDDF70 /* Assets.xcassets */; };
 		2169B051284136EF00FDDF70 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2169B050284136EF00FDDF70 /* Preview Assets.xcassets */; };
 		55EA975DD546CE8D982173A7 /* Pods_CalculatorClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF1A16BBAAF859013B5BA01F /* Pods_CalculatorClone.framework */; };
+		AB3270BF2850BCCE0054F6CD /* CalculationNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3270BE2850BCCE0054F6CD /* CalculationNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2169B04B284136ED00FDDF70 /* CalculatorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorScreen.swift; sourceTree = "<group>"; };
 		2169B04D284136EF00FDDF70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2169B050284136EF00FDDF70 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AB3270BE2850BCCE0054F6CD /* CalculationNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculationNode.swift; sourceTree = "<group>"; };
 		AE0F4D9D23E7C152445E6A1C /* Pods-CalculatorClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalculatorClone.debug.xcconfig"; path = "Target Support Files/Pods-CalculatorClone/Pods-CalculatorClone.debug.xcconfig"; sourceTree = "<group>"; };
 		DF1A16BBAAF859013B5BA01F /* Pods_CalculatorClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalculatorClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E57E5C3F7B928392BB7E1F13 /* Pods-CalculatorClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalculatorClone.release.xcconfig"; path = "Target Support Files/Pods-CalculatorClone/Pods-CalculatorClone.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				21417BF72841D1E100BAB4D5 /* CalculatorButtonContent.swift */,
+				AB3270BE2850BCCE0054F6CD /* CalculationNode.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				21417BFC2841DCC900BAB4D5 /* CalculatorButtonStyle.swift in Sources */,
 				21417BF82841D1E100BAB4D5 /* CalculatorButtonContent.swift in Sources */,
 				2169B04A284136ED00FDDF70 /* CalculatorCloneApp.swift in Sources */,
+				AB3270BF2850BCCE0054F6CD /* CalculationNode.swift in Sources */,
 				21652322284AF0A300B0E23D /* CalculatorScreen+Extensions.swift in Sources */,
 				2167D1072844763700B22E12 /* Constants.swift in Sources */,
 			);
