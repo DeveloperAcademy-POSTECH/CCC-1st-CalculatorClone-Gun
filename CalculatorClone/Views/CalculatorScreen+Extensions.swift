@@ -11,7 +11,7 @@ extension CalculatorScreen {
     func clickButton(with buttonContent: CalculatorButtonContent) {
         switch buttonContent {
         case .reset:
-            isReset = true
+            reset()
         case .divide, .multiply, .minus, .plus:
             clickOperator(buttonContent)
         case .zero, .one, .two, .three, .four, .five, .six, .seven, .eight, .nine:
@@ -112,5 +112,12 @@ extension CalculatorScreen {
         calculationNodes.removeAll()
         currentOperatorIndex = nil
         currentPhase = .finished
+    }
+
+    func reset() {
+        currentPhase = .writingValue
+        unformattedValueString = "0"
+        calculationNodes.removeAll()
+        isReset = true
     }
 }
